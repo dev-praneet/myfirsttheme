@@ -31,31 +31,32 @@
 
 			<div id="navigation" class="collapse navbar-collapse flex-column" >
                 <?php
-                if(function_exists('the_custom_logo')){
-                    /**
-                     * simply using the_custom_logo would output the logo with all the wordpress classes and not with the classes I want
-                     */
-                    // the_custom_logo();
+                    if(function_exists('the_custom_logo')){
+                        /**
+                         * simply using the_custom_logo would output the logo with all the wordpress classes and not with the classes I want
+                         */
+                        // the_custom_logo();
 
-                    $custom_logo_id = get_theme_mod('custom_logo');
-                    $logo = wp_get_attachment_image_src($custom_logo_id);
-                }
+                        $custom_logo_id = get_theme_mod('custom_logo');
+                        $logo = wp_get_attachment_image_src($custom_logo_id);
+                    }
                 ?>
-				<img class="mb-3 mx-auto logo" src="<?php echo $logo[0] ?>" alt="logo" >			
-				
 
-<?php
-    wp_nav_menu(
-        array(
-            'menu' => 'primary',
-            'container' => '',
-            'theme_location' => 'primary',
-            'items_wrap' => '<ul id="" class="navbar-nav flex-column text-sm-center text-md-left">%3$s</ul>'
-        )
-    );
-?>
+				<img class="mb-3 mx-auto logo" src="<?php echo $logo[0] ?>" alt="logo" >							
+
+                <?php
+                    wp_nav_menu(
+                        array(
+                            'menu' => 'primary',
+                            'container' => '',
+                            'theme_location' => 'primary',
+                            'items_wrap' => '<ul id="" class="navbar-nav flex-column text-sm-center text-md-left">%3$s</ul>'
+                        )
+                    );
+                ?>
 
 				<hr>
+
 				<ul class="social-list list-inline py-3 mx-auto">
 					<li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
 					<li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
@@ -63,12 +64,17 @@
 					<li class="list-inline-item"><a href="#"><i class="fab fa-stack-overflow fa-fw"></i></a></li>
 					<li class="list-inline-item"><a href="#"><i class="fab fa-codepen fa-fw"></i></a></li>
 				</ul>
-
 			</div>
+
+
 		</nav>
+        
+        <?php
+            dynamic_sidebar('sidebar-1');
+        ?>
     </header>
 
-        <div class="main-wrapper">
-	    <header class="page-title theme-bg-light text-center gradient py-5">
-			<h1 class="heading"><?php the_title(); ?></h1>
-		</header>
+    <div class="main-wrapper">
+        <header class="page-title theme-bg-light text-center gradient py-5">
+            <h1 class="heading"><?php the_title(); ?></h1>
+        </header>

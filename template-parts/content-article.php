@@ -25,7 +25,7 @@
             </span>
             <span class="tag"><i class='fa fa-tag'></i> category
             </span> -->
-            <span class="comment"><a href="#comments"><i class='fa fa-comment'></i> 3 comments</a>
+            <span class="comment"><a href="#comments"><i class='fa fa-comment'></i> <?php comments_number(); ?> </a>
             </span>
         </div>
     </header>
@@ -34,4 +34,11 @@
     the_content();
     ?>
 
+    <!-- we can do all sorts of logic here to determine for which page we want to show the comments -->
+    <?php
+    comments_template();
+    
+    ?>
+
 </div>
+
